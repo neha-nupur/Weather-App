@@ -47,7 +47,7 @@ app.post("/", function(req, res){
                                 margin: 0;
                                 font-family: Arial, sans-serif;
                                 background-color: #F5EBEB;
-                                background-image: url("https://img.freepik.com/free-photo/sunny-blue-sky_1048-8145.jpg?w=900&t=st=1682848304~exp=1682848904~hmac=5f6a0a25662cb6d9148ef732efe14acba669177097adfb2414baf28af9f67a6a");
+                                background-image: url("http://surl.li/gsbxd");
                                 background-size: cover;
                                 background-position: center center;
                                 background-repeat: no-repeat;

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Weather App</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        background-image: url("https://img.freepik.com/free-photo/clouds-sky_53876-33576.jpg?w=996&t=st=1682847943~exp=1682848543~hmac=be948bcc640fba3121fe41d32fbac578f8646a93ed05794d49f9a10dbba292db");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        font-family: sans-serif;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .heading {
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        color: #f7f7f7;
+        margin-bottom: 3rem;
+        text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        max-width: 400px;
+        padding: 2rem 0;
+        background-color: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      label,
+      input {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        color: #333;
+        text-align: center;
+        text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
+      }
+
+      input {
+        padding: 0.5rem;
+        border: none;
+        border-bottom: 2px solid #333;
+        width: 100%;
+        text-align: center;
+        background-color: transparent;
+      }
+
+      input:focus {
+        outline: none;
+        border-bottom: 2px solid #0080ff;
+      }
+
+      button {
+        font-size: 1.5rem;
+        padding: 1rem;
+        border: none;
+        border-radius: 20px;
+        background-color: #0080ff;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 2rem;
+      }
+
+      button:hover {
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      .footer {
+        margin-top: 3rem;
+        font-size: 1.2rem;
+        text-align: center;
+        color: #e3e3e3;
+      }
+
+      .footer a {
+        color: #e0e0e0;
+        font-weight: bold;
+        transition: all 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="heading">Weather App</h1>
+      <form action="/" method="post">
+        <label for="cityInput">Enter the name of a city</label>
+        <input
+          id="cityInput"
+          type="text"
+          name="cityName"
+          placeholder="e.g. London"
+        />
+        <button type="submit">Get Weather</button>
+      </form>
+      <p class="footer">Designed by Neha Nupur</p>
+    </div>
+  </body>
+</html>

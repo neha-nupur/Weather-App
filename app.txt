@@ -1,0 +1,64 @@
+// Learning Purpose
+
+const express = require("express");          // Import Express framework
+const https = require("https");              // Import https library to make API calls
+const bodyParser = require("body-parser");   // Import body-parser library to parse the HTTP request body
+
+
+const app = express();                       // Create an Express app
+
+app.use(bodyParser.urlencoded({extended: true}));  // Use the bodyParser middleware to parse the incoming request body encoded in URL form 
+
+app.get("/", function(req, res) {            // Handle GET requests on the root URL of the web app
+    res.sendFile(__dirname + "/index.html"); // Send the index.html file as the response
+});
+ 
+app.post("/", function(req, res){            // Handle POST requests on the root URL of the web app    
+    const query = req.body.cityName;         // Extract the city name from the request body
+    const apiKey = "74fd7ba8041e758c679959b5cad006f7"; // Provide OpenWeatherMap API key to use
+    const unit = "metric";                   // Set the temperature unit to metric (Celsius)
+
+    const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=1&appid=${apiKey}`;
+    // Create the GeoLocation URL to fetch the latitude and longitude of the city from the OpenWeatherMap API
+    
+    https.get(geoUrl, function(response){
+
+        response.on("data", function(data){
+            const locationData = JSON.parse(data);  // Parse the JSON response containing the city's latitude and longitude
+            const lat = locationData[0].lat;
+            const lon = locationData[0].lon;
+            
+            const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+            // Create the weather URL to fetch the weather data for the city based on its coordinates
+            
+            https.get(weatherUrl, function(response){
+
+                response.on("data", function(data){
+                    const weatherData = JSON.parse(data);        // Parse the JSON response containing the weather data
+                    const temp = weatherData.main.temp;          // Extract the temperature from the response
+                    const weatherDescription = weatherData.weather[0].description;  // Extract the weather description from the response
+                    const icon = weatherData.weather[0].icon;    // Extract the weather icon name from the response
+                    const imageURL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+                    // Create the image URL to fetch the icon image from the OpenWeatherMap website
+                    
+                    res.write("<p> The weather is currently " +weatherDescription + " </p>"); 
+                    // Send back the weather description in the response body
+                    res.write("<h1>The temp in " + query + " is " + temp + " degrees Celcius.</h1>");
+                    // Send back the temperature in the response body
+                    res.write("<img src=" + imageURL + ">");   
+                    // Send back the weather icon in the response body
+                    res.send();    // End the response and send it to the client
+                });
+
+            });
+
+        });
+        
+    });
+    
+});
+
+
+app.listen(3000, function() {           // Start the server on port 3000
+    console.log("Server is running on port 3000.");
+});  

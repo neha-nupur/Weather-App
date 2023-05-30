@@ -42,11 +42,5 @@
     <li>Click the "Get Weather" button to see the current weather condition of the entered city.</li>
 </ol>
 
-<!-- Screenshots -->
-
-<h2>Screenshots</h2>
-<img src="image/Weather 1.png" alt="Screenshot 1">
-<br/>
-<img src="image/Weather 2.png" alt="Screenshot 2">
 
 

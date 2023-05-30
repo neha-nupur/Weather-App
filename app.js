@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+app.use(express.static("public"));
+
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/", function(req, res) {
@@ -47,7 +49,7 @@ app.post("/", function(req, res){
                                 margin: 0;
                                 font-family: Arial, sans-serif;
                                 background-color: #F5EBEB;
-                                background-image: url("http://surl.li/gsbxd");
+                                background-image: url("./image/Weather_2.jpg");
                                 background-size: cover;
                                 background-position: center center;
                                 background-repeat: no-repeat;

@@ -1,8 +1,7 @@
-<!-- Weather App -->
+# Weather App
 
 <p>This is a simple weather application that allows users to enter a city name as input and get the current weather condition of the entered city.</p>
 
-<!-- Technologies -->
 
 <h2>Technologies</h2>
 <ul>
@@ -19,7 +18,6 @@
     </li>
 </ul>
 
-<!-- Setup -->
 
 <h2>Setup</h2>
 <p>To set up and run the project, follow these steps:</p>
@@ -33,7 +31,6 @@
     <li>Open your browser and enter `http://localhost:3000` in the address bar to view the application.</li>
 </ol>
 
-<!-- Usage -->
 
 <h2>Usage</h2>
 <p>To use the application, follow these steps:</p>
